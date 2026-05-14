@@ -1,0 +1,51 @@
+# Build output
+x64/
+x86/
+Debug/
+Release/
+bin/
+obj/
+out/
+
+# Visual Studio / MSBuild
+*.user
+*.suo
+*.aps
+*.ncb
+*.sdf
+*.opensdf
+*.pdb
+*.ipdb
+*.iobj
+*.ilk
+*.exp
+*.idb
+.vs/
+
+# JetBrains Rider
+.idea/
+*.DotSettings.user
+
+# Compiled files
+*.obj
+*.lib
+*.dll
+*.exe
+*.pch
+*.pgc
+*.pgd
+
+# Generated
+ipch/
+*.tlog
+*.lastbuildstate
+*.unsuccessfulbuild
+
+# ThirdParty binaries (mantém a estrutura mas ignora os binários)
+ThirdParty/GLFW/lib-vc2022/*.lib
+ThirdParty/GLFW/lib-vc2022/*.dll
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
