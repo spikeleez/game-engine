@@ -154,8 +154,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Events\ApplicationEvents.cpp" />
+    <ClCompile Include="Events\Event.cpp" />
+    <ClCompile Include="Events\KeyEvents.cpp" />
+    <ClCompile Include="Events\MouseEvents.cpp" />
     <ClCompile Include="glad.cpp" />
+    <ClCompile Include="Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="Events\ApplicationEvents.h" />
+    <ClInclude Include="Events\Event.h" />
+    <ClInclude Include="Events\KeyEvents.h" />
+    <ClInclude Include="Events\MouseEvents.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
