@@ -10,6 +10,10 @@
             <LanguageStandard>stdcpp20</LanguageStandard>
             <WarningLevel>Level3</WarningLevel>
             <MultiProcessorCompilation>true</MultiProcessorCompilation>
+
+            <RuntimeLibrary Condition="'$(Configuration)'=='Debug'">MultiThreadedDebugDLL</RuntimeLibrary>
+            <RuntimeLibrary Condition="'$(Configuration)'=='Release'">MultiThreadedDLL</RuntimeLibrary>
+
             <AdditionalIncludeDirectories>
                 $(ThirdPartyDir)GLFW\include;
                 $(ThirdPartyDir)GLAD\include;
@@ -22,11 +26,13 @@
                 $(SolutionDir)ECS;
                 %(AdditionalIncludeDirectories)
             </AdditionalIncludeDirectories>
+
             <PreprocessorDefinitions>
                 NOVA_ENGINE;
                 %(PreprocessorDefinitions)
             </PreprocessorDefinitions>
         </ClCompile>
+
         <Link>
             <AdditionalLibraryDirectories>
                 $(ThirdPartyDir)GLFW\lib-vc2022;

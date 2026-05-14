@@ -11,8 +11,8 @@ namespace GameEngine
     struct WindowProps
     {
         std::string Title;
-        uint32_t    Width;
-        uint32_t    Height;
+        uint32_t Width;
+        uint32_t Height;
 
         WindowProps(std::string Title = "Game Engine", uint32_t Width = 1280, uint32_t Height = 720)
             : Title(std::move(Title))
