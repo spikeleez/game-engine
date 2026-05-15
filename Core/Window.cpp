@@ -7,17 +7,17 @@
 #include "Events/KeyEvents.h"
 #include "Events/MouseEvents.h"
 
-GameEngine::Window::Window(const WindowProps& Props)
+GameEngine::Core::Window::Window(const WindowProps& Props)
 {
     Init(Props);
 }
 
-GameEngine::Window::~Window()
+GameEngine::Core::Window::~Window()
 {
     Shutdown();
 }
 
-void GameEngine::Window::Init(const WindowProps& Props)
+void GameEngine::Core::Window::Init(const WindowProps& Props)
 {
     Data.Title = Props.Title;
     Data.Width = Props.Width;
@@ -91,19 +91,19 @@ void GameEngine::Window::Init(const WindowProps& Props)
     });
 }
 
-void GameEngine::Window::Shutdown()
+void GameEngine::Core::Window::Shutdown()
 {
     glfwDestroyWindow(NativeWindow);
     glfwTerminate();
 }
 
-void GameEngine::Window::Tick()
+void GameEngine::Core::Window::Tick()
 {
     glfwPollEvents();
     glfwSwapBuffers(NativeWindow);
 }
 
-bool GameEngine::Window::ShouldClose() const
+bool GameEngine::Core::Window::ShouldClose() const
 {
     return glfwWindowShouldClose(NativeWindow);
 }

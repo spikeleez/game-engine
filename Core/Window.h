@@ -6,7 +6,7 @@
 
 struct GLFWwindow;
 
-namespace GameEngine
+namespace GameEngine::Core
 {
     struct WindowProps
     {

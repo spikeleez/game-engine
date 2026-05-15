@@ -4,7 +4,7 @@
 #include <memory>
 #include "Events/ApplicationEvents.h"
 
-namespace GameEngine
+namespace GameEngine::Core
 {
     class Application
     {
@@ -20,6 +20,7 @@ namespace GameEngine
         static Application& Get() { return *Instance; }
 
     protected:
+        virtual void BeginPlay();
         virtual void Tick(float DeltaTime) {}
         virtual void Render() {}
         virtual void OnEvent(Event& Event);

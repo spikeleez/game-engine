@@ -5,11 +5,11 @@
 #define VIEW_W 1280
 #define VIEW_H 720
 
-class PongGame : public GameEngine::Application
+class PongGame : public GameEngine::Core::Application
 {
 public:
     PongGame()
-        : Application(GameEngine::WindowProps("Pong Game", VIEW_W, VIEW_H))
+        : Application(GameEngine::Core::WindowProps("Pong Game", VIEW_W, VIEW_H))
         , Camera(-640.0f, 640.0f, -360.0f, 360.0f)
     {
         GameEngine::Renderer::Renderer2D::Init();
@@ -24,6 +24,11 @@ public:
     using Camera2D = GameEngine::Renderer::Camera2D;
 
 protected:
+    void BeginPlay() override
+    {
+        //Application::BeginPlay();
+    }
+
     void Tick(float DeltaTime) override
     {
 
