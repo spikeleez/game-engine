@@ -2,20 +2,26 @@
 #include "Renderer/Renderer2D.h"
 #include "Renderer/Camera2D.h"
 
+#define VIEW_W 1280
+#define VIEW_H 720
+
 class PongGame : public GameEngine::Application
 {
 public:
     PongGame()
-        : Application(GameEngine::WindowProps("Pong Game", 1280, 720))
+        : Application(GameEngine::WindowProps("Pong Game", VIEW_W, VIEW_H))
         , Camera(-640.0f, 640.0f, -360.0f, 360.0f)
     {
         GameEngine::Renderer::Renderer2D::Init();
     }
 
-    ~PongGame()
+    ~PongGame() override
     {
         GameEngine::Renderer::Renderer2D::Shutdown();
     }
+
+    using Renderer2D = GameEngine::Renderer::Renderer2D;
+    using Camera2D = GameEngine::Renderer::Camera2D;
 
 protected:
     void Tick(float DeltaTime) override
@@ -25,22 +31,28 @@ protected:
 
     void Render() override
     {
-        GameEngine::Renderer::Renderer2D::BeginScene(Camera);
+        // Beginning Scene.
+        Renderer2D::BeginScene(Camera);
 
-        // Left Paddle.
-        GameEngine::Renderer::Renderer2D::DrawQuad({-600.0f, 0.0f}, {20.0f, 120.0f}, {1, 1, 1, 1});
+        // Dashed Line.
+        Renderer2D::DrawDashedLine({0.0f, -360.0f}, {0.0f, 360.0f}, {1, 1, 1, 0.3f}, 5.0f);
 
-        // Right Paddle.
-        GameEngine::Renderer::Renderer2D::DrawQuad({600.0f, 0.0f}, {20.0f, 120.0f}, {1, 1, 1, 1});
+        // Paddles
+        Renderer2D::DrawQuad({-600.0f, 0.0f}, {20.0f, 120.0f}, {1, 1, 1, 1});
+        Renderer2D::DrawQuad({600.0f, 0.0f}, {20.0f, 120.0f}, {1, 1, 1, 1});
 
-        // Ball.
-        GameEngine::Renderer::Renderer2D::DrawQuad({0.0f, 0.0f}, {20.0f, 20.0f}, {1, 1, 1, 1});
+        // Square Ball
+        Renderer2D::DrawQuad({0.0f, 0.0f}, {20.0f, 20.0f}, {1, 1, 1, 1});
 
-        GameEngine::Renderer::Renderer2D::EndScene();
+        // Circle Ball.
+        //Renderer2D::DrawCircle({0.0f, 0.0f}, 10.0f, {1, 1, 1, 1});
+
+        // Ending Scene.
+        Renderer2D::EndScene();
     }
 
 private:
-    GameEngine::Renderer::Camera2D Camera;
+    Camera2D Camera;
 };
 
 int main()

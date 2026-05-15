@@ -35,7 +35,7 @@ void GameEngine::Application::Run()
         const float DeltaTime = CurrentTime - LastTime;
         LastTime = CurrentTime;
 
-        glClearColor(0.08f, 0.08f, 0.12f, 1.0f);
+        glClearColor(0.08f, 0.08f, 0.08f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         Tick(DeltaTime);
